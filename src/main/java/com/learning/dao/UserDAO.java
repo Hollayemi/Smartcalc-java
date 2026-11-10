@@ -32,6 +32,7 @@ public class UserDAO
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
+            System.out.println(e);
             return false; // Usually means username already exists
         }
     }

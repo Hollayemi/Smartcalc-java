@@ -18,8 +18,11 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         String action = req.getParameter("action"); // "login" or "register"
 
+        System.out.println(username + " " + password + " " + action);
+
         if ("register".equals(action)) {
             User newUser = new User(0, username, password);
+
             if (userDAO.register(newUser)) {
                 resp.sendRedirect("login.jsp?registered=true");
             } else {
